@@ -254,8 +254,8 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: unity
-          path: unityBuild
+          name: build-Android
+          path: androidBuild
           
       - name: Deploy 🚀
         uses: nkoppel/push-files-to-another-repository@v1.1.1
