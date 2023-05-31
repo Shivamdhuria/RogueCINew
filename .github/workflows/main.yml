@@ -150,6 +150,8 @@ jobs:
 #     needs: testRunner
     name: Build for Android 📱
     runs-on: ubuntu-latest
+    permissions:
+         contents: write
     strategy:
       fail-fast: false
     steps:
@@ -195,7 +197,7 @@ jobs:
       - name: Add gradle wrapper
         uses: gradle/gradle-build-action@v2
         with:
-           gradle-version: 6.5
+           gradle-version: 7.6
            arguments: wrapper 
            build-root-directory: build/Android
         
