@@ -199,7 +199,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-files: 'androidBuild/Android/'
+          source-files: 'androidBuild'
           destination-username: 'Shivamdhuria'
           destination-branch: 'main'
           destination-repository: 'RogueAndroid'
