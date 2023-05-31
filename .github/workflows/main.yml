@@ -103,7 +103,7 @@ jobs:
           path: build/WebGL
 
   buildWindows:
-    needs: testRunner
+#     needs: testRunner
     name: Build for Windows 🖥️
     runs-on: ubuntu-latest
     strategy:
@@ -187,23 +187,26 @@ jobs:
           targetPlatform: Android
           
       - name: Log directory
-        run: |
-            cd ./build/Android  
+        run: |  
             ls -la
             
       - name: Add gradle wrapper
         uses: gradle/gradle-build-action@v2
         with:
            gradle-version: 6.5
-           arguments: wrapper  
+           arguments: wrapper 
+           build-root-directory: build/Android
         
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
            arguments: build
+           build-root-directory: build/Android
            
       - name: Log directory after buil
         run: |
+            ls -la
+            cd ./build/Android/unityLibrary
             ls -la
            
       - uses: actions/upload-artifact@v2
