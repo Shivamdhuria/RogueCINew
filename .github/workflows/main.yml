@@ -207,7 +207,7 @@ jobs:
         - name: Log directory
           run: |
             ls -la
-            cd ./src/webclient
+            cd ./build/Android  
             ls -la
           
         - name: Add gradle wrapper
