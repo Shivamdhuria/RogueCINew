@@ -255,14 +255,16 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          path: androidBuild
+          
+      - name: Display structure of downloaded files
+        run: ls -R
           
       - name: Deploy 🚀
         uses: nkoppel/push-files-to-another-repository@v1.1.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-files: 'unityBuild/unity'
+          source-files: 'build-Android'
           destination-username: 'Shivamdhuria'
           destination-branch: 'main'
           destination-repository: 'RogueAndroid'
