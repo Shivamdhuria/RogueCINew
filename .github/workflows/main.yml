@@ -186,7 +186,7 @@ jobs:
       - uses: game-ci/unity-builder@v2.2.0
         with:
           androidExportType: androidStudioProject
-          path: /androidBuild
+          projectPath: /androidBuild
           targetPlatform: Android
           
       - name: Log directory
