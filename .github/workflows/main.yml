@@ -186,13 +186,13 @@ jobs:
       - uses: game-ci/unity-builder@v2.2.0
         with:
           androidExportType: androidStudioProject
-          projectPath: /androidBuild
+          buildsPath: /androidBuild
           targetPlatform: Android
           
       - name: Log directory
         run: |  
             ls -la
-            cd ./build/Android/
+            cd ./androidBuild
             ls -la
             
       - name: Log directory 2
