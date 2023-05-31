@@ -190,6 +190,7 @@ jobs:
         run: |
             cd ./build/Android  
             ls -la
+            
       - name: Add gradle wrapper
         uses: gradle/gradle-build-action@v2
         with:
@@ -200,6 +201,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
            arguments: build
+           
+      - name: Log directory after buil
+        run: |
+            ls -la
            
       - uses: actions/upload-artifact@v2
         with:
