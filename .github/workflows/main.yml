@@ -198,23 +198,23 @@ jobs:
            name: build-Android
            path: androidBuild/Android  
             
-      - name: Add gradle wrapper
-        uses: gradle/gradle-build-action@v2
-        with:
-           gradle-version: 7.6
-           arguments: wrapper 
-           build-root-directory: /androidBuild/Android
+#       - name: Add gradle wrapper
+#         uses: gradle/gradle-build-action@v2
+#         with:
+#            gradle-version: 7.6
+#            arguments: wrapper 
+#            build-root-directory: /androidBuild/Android
         
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-           arguments: build
-           build-root-directory: /androidBuild
+#       - name: Setup Gradle
+#         uses: gradle/gradle-build-action@v2
+#         with:
+#            arguments: build
+#            build-root-directory: /androidBuild
            
       - name: Log directory after buil
         run: |
             ls -la
-            cd ./build/Android/unityLibrary
+            cd ./androidBuild/Android/
             ls -la
            
       - uses: actions/upload-artifact@v2
@@ -227,42 +227,42 @@ jobs:
 #           name: build-Android
 #           path: build/Android
           
-  assembsleLibrary:
-       needs: buildAndroid
-       permissions:
-         contents: write
-       name: Build Unity Library 
-       runs-on: ubuntu-latest
-       steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-java@v3
-          with:
-            distribution: temurin
-            java-version: 11
+#   assembsleLibrary:
+#        needs: buildAndroid
+#        permissions:
+#          contents: write
+#        name: Build Unity Library 
+#        runs-on: ubuntu-latest
+#        steps:
+#         - uses: actions/checkout@v3
+#         - uses: actions/setup-java@v3
+#           with:
+#             distribution: temurin
+#             java-version: 11
           
-        - name: Log directory
-          run: |
-            ls -la
-            cd ./build/Android  
-            ls -la
+#         - name: Log directory
+#           run: |
+#             ls -la
+#             cd ./build/Android  
+#             ls -la
           
-        - name: Add gradle wrapper
-          uses: gradle/gradle-build-action@v2.4.2
-          with:
-           gradle-version: 6.5
-           arguments: wrapper
-           build-root-directory: /build/Android    
+#         - name: Add gradle wrapper
+#           uses: gradle/gradle-build-action@v2.4.2
+#           with:
+#            gradle-version: 6.5
+#            arguments: wrapper
+#            build-root-directory: /build/Android    
         
-        - name: Setup Gradle
-          uses: gradle/gradle-build-action@v2.4.2
-          with:
-           arguments: build
-           build-root-directory: build/Android
+#         - name: Setup Gradle
+#           uses: gradle/gradle-build-action@v2.4.2
+#           with:
+#            arguments: build
+#            build-root-directory: build/Android
            
-        - uses: actions/upload-artifact@v2
-          with:
-           name: build-Android
-           path: build/Android/unityLibrary/libs/outputs/aar/unityLibrary-release.aar
+#         - uses: actions/upload-artifact@v2
+#           with:
+#            name: build-Android
+#            path: build/Android/unityLibrary/libs/outputs/aar/unityLibrary-release.aar
 
 
   deployPages:
