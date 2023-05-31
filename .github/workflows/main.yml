@@ -186,20 +186,19 @@ jobs:
       - uses: game-ci/unity-builder@v2.2.0
         with:
           androidExportType: androidStudioProject
-          buildsPath: /androidBuild
+          buildsPath: androidBuild
           targetPlatform: Android
           
       - name: Log directory
         run: |  
             ls -la
-            cd ./androidBuild
+            cd ./androidBuild/
             ls -la
             
-      - name: Log directory 2
-        run: |  
-            ls -la
-            cd ./androidBuild
-            ls -la
+      - uses: actions/upload-artifact@v2
+        with:
+           name: build-Android
+           path: androidBuild/Android  
             
       - name: Add gradle wrapper
         uses: gradle/gradle-build-action@v2
