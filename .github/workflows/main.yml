@@ -239,6 +239,20 @@ jobs:
             ls -la
             cd ./androidBuild/Android/
             ls -la
+            
+      - name: Display structure of downloaded files
+        run: ls -R
+          
+      - name: Pushes to another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'Android/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          user-email: carles3@pina.cat
+          target-branch: main
 
 
 
@@ -252,12 +266,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-Android
+#       - uses: actions/download-artifact@v2
+#         with:
+#           name: build-Android
           
-      - name: Display structure of downloaded files
-        run: ls -R
+#       - name: Display structure of downloaded files
+#         run: ls -R
+          
+#       - name: Pushes to another repository🚀
+#         uses: cpina/github-action-push-to-another-repository@main
+#         env:
+#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#         with:
+#           source-directory: 'output'
+#           destination-github-username: 'Shivamdhuria'
+#           destination-repository-name: 'RogueAndroid'
+#           user-email: carles3@pina.cat
+#           target-branch: main
           
       - name: Deploy 🚀
         uses: nkoppel/push-files-to-another-repository@v1.1.1
