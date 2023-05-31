@@ -216,10 +216,10 @@ jobs:
 #          user_name: 'dmnemec'
 #          commit_message: 'A custom message for the commit'
             
-      - uses: actions/upload-artifact@v2
-        with:
-           name: build-Android
-           path: androidBuild/Android  
+#       - uses: actions/upload-artifact@v2
+#         with:
+#            name: build-Android
+#            path: androidBuild/Android  
             
 #       - name: Add gradle wrapper
 #         uses: gradle/gradle-build-action@v2
@@ -248,7 +248,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'Android/'
+          source-directory: 'androidBuild/Android/'
           destination-github-username: 'Shivamdhuria'
           destination-repository-name: 'RogueAndroid'
           user-email: carles3@pina.cat
