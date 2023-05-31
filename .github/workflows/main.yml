@@ -194,16 +194,16 @@ jobs:
             cd ./androidBuild/Android
             ls -la
             
-      - name: Copy files to another repository
-        uses: nkoppel/push-files-to-another-repository@v1.1.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-files: 'androidBuild'
-          destination-username: 'Shivamdhuria'
-          destination-branch: 'main'
-          destination-repository: 'RogueAndroid'
-          commit-email: 'me@gmail.com'
+#       - name: Copy files to another repository
+#         uses: nkoppel/push-files-to-another-repository@v1.1.1
+#         env:
+#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#         with:
+#           source-files: 'androidBuild'
+#           destination-username: 'Shivamdhuria'
+#           destination-branch: 'main'
+#           destination-repository: 'RogueAndroid'
+#           commit-email: 'me@gmail.com'
           
 #       - name: Pushes test file
 #         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -239,6 +239,38 @@ jobs:
             ls -la
             cd ./androidBuild/Android/
             ls -la
+
+
+
+
+
+  deployUnity:
+    needs: buildWebGL
+    name: Deploy to Github Pages 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: unity
+          path: unityBuild
+          
+      - name: Deploy 🚀
+        uses: nkoppel/push-files-to-another-repository@v1.1.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-files: 'unityBuild/unity'
+          destination-username: 'Shivamdhuria'
+          destination-branch: 'main'
+          destination-repository: 'RogueAndroid'
+          commit-email: 'me@gmail.com'
+
+
+
+
            
 #       - uses: actions/upload-artifact@v2
 #         with:
