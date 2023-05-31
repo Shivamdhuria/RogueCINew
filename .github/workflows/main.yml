@@ -245,8 +245,8 @@ jobs:
 
 
   deployUnity:
-    needs: buildWebGL
-    name: Deploy to Github Pages 🚀
+    needs: buildAndroid
+    name: Deploy to Github Android Repo 🚀
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
