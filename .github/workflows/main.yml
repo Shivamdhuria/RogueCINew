@@ -185,6 +185,12 @@ jobs:
         with:
           androidExportType: androidStudioProject
           targetPlatform: Android
+          
+      - name: Log directory
+        run: |
+            ls -la
+            cd ./build/Android  
+            ls -la
 
       - uses: actions/upload-artifact@v2
         with:
