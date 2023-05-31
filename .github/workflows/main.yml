@@ -188,21 +188,18 @@ jobs:
           
       - name: Log directory
         run: |
-            ls -la
             cd ./build/Android  
             ls -la
       - name: Add gradle wrapper
         uses: gradle/gradle-build-action@v2
         with:
            gradle-version: 6.5
-           arguments: wrapper
-           build-root-directory: /build/Android    
+           arguments: wrapper  
         
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
            arguments: build
-           build-root-directory: build/Android
            
       - uses: actions/upload-artifact@v2
         with:
