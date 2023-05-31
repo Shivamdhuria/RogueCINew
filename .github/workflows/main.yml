@@ -191,7 +191,7 @@ jobs:
       - name: Log directory
         run: |  
             ls -la
-            cd ./build/Android
+            cd ./build/Android/
             ls -la
             
       - name: Add gradle wrapper
@@ -205,7 +205,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
            arguments: build
-           build-root-directory: build/Android
+           build-root-directory: build/Android/
            
       - name: Log directory after buil
         run: |
