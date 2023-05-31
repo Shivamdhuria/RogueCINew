@@ -265,13 +265,13 @@ jobs:
 #            path: build/Android/unityLibrary/libs/outputs/aar/unityLibrary-release.aar
 
 
-  deployPages:
-    needs: buildWebGL
-    name: Deploy to Github Pages 🚀
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#   deployPages:
+#     needs: buildWebGL
+#     name: Deploy to Github Pages 🚀
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
       - uses: actions/download-artifact@v2
         with:
