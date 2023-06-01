@@ -252,8 +252,8 @@ jobs:
       - name: Display structure of Created files files
         run: ls -R
         
-      - name: filters androidBuild/Android/Android/unityLibrary/ to /output using rsync 
-        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ /output
+      - name: filters androidBuild/Android/Android/unityLibrary/ to output/ using rsync 
+        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ output/
            
 #         //The below copy method works when not executing ^^ job
           
