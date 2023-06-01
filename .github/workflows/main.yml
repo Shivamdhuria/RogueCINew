@@ -246,26 +246,8 @@ jobs:
         
       - name: filters androidBuild/Android/Android/unityLibrary/ to /output using rsync 
         run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ /output
-        
-#       - name: Display structure of downloaded files
-#         run: ls -R
-        
-#       - name: Copycat
-#         uses: andstor/copycat-action@v3
-#         with:
-#          personal_token: ${{ secrets.API_TOKEN_GITHUB }}
-#          src_path: androidBuild/Android/Android/unityLibrary/
-#          dst_path: unityLibrary
-#          dst_owner: Shivamdhuria
-#          dst_repo_name: RogueAndroid
-#          dst_branch: main
-#          src_branch: main
-#          src_wiki: true
-#          dst_wiki: false
-#          username: Shivamdhuria
-#          email: bot@gmail.com
-        
-#         //The below copy method works
+           
+#         //The below copy method works when not executing ^^ job
           
 #       - name: Pushes to another repository🚀
 #         uses: cpina/github-action-push-to-another-repository@main
