@@ -8,8 +8,7 @@ env:
 jobs:
   testRunner:
     name: Test in ${{ matrix.testMode }} ✨
-    permissions: 
-     contents: write
+    permissions: write-all
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
