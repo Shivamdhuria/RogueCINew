@@ -254,15 +254,15 @@ jobs:
         with:
          personal_token: ${{ secrets.API_TOKEN_GITHUB }}
          src_path: androidBuild/Android/Android/unityLibrary/
-         dst_path: /output/
+         dst_path: unityLibrary
          dst_owner: Shivamdhuria
          dst_repo_name: RogueAndroid
          dst_branch: main
          src_branch: main
          src_wiki: true
          dst_wiki: false
-         username: nutsbot
-         email: andr3.storhaug+bot@gmail.com
+         username: Shivamdhuria
+         email: bot@gmail.com
         
 #         //The below copy method works
           
@@ -271,7 +271,7 @@ jobs:
 #         env:
 #           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
 #         with:
-#           source-directory: 'androidBuild/Android/Android/unityLibrary/output/'
+#           source-directory: 'androidBuild/Android/Android/unityLibrary'
 #           destination-github-username: 'Shivamdhuria'
 #           destination-repository-name: 'RogueAndroid'
 #           target-directory: unityLibrary
