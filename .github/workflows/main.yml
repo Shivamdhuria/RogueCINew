@@ -195,16 +195,16 @@ jobs:
             cd ./androidBuild/Android
             ls -la
             
-#       - name: Copy files to another repository
-#         uses: nkoppel/push-files-to-another-repository@v1.1.1
-#         env:
-#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#           source-files: 'androidBuild'
-#           destination-username: 'Shivamdhuria'
-#           destination-branch: 'main'
-#           destination-repository: 'RogueAndroid'
-#           commit-email: 'me@gmail.com'
+      - name: Copy files to another repository
+        uses: nkoppel/push-files-to-another-repository@v1.1.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-files: 'output/'
+          destination-username: 'Shivamdhuria'
+          destination-branch: 'main'
+          destination-repository: 'RogueAndroid'
+          commit-email: 'me@gmail.com'
           
 #       - name: Pushes test file
 #         uses: dmnemec/copy_file_to_another_repo_action@main
