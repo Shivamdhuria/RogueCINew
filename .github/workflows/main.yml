@@ -253,7 +253,7 @@ jobs:
         run: ls -R
         
       - name: filters androidBuild/Android/Android/unityLibrary/ to output/ using rsync 
-        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ output/
+        run:  rsync -arv --exclude="src/main/AndroidManifest.xml" --exclude="build.gradle" --exclude="build.gradle" androidBuild/Android/Android/unityLibrary/ output/
            
 #         //The below copy method works when not executing ^^ job
           
