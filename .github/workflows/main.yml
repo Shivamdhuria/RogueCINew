@@ -248,18 +248,35 @@ jobs:
         
       - name: Display structure of downloaded files
         run: ls -R
-          
-      - name: Pushes to another repository🚀
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        
+      - name: Copycat
+        uses: andstor/copycat-action@v3
         with:
-          source-directory: 'androidBuild/Android/Android/unityLibrary/output/'
-          destination-github-username: 'Shivamdhuria'
-          destination-repository-name: 'RogueAndroid'
-          target-directory: unityLibrary
-          user-email: carles3@pina.cat
-          target-branch: main
+         personal_token: ${{ secrets.API_TOKEN_GITHUB }}
+         src_path: androidBuild/Android/Android/unityLibrary/
+         dst_path: /output/
+         dst_owner: Shivamdhuria
+         dst_repo_name: RogueAndroid
+         dst_branch: main
+         src_branch: main
+         src_wiki: true
+         dst_wiki: false
+         username: nutsbot
+         email: andr3.storhaug+bot@gmail.com
+        
+#         //The below copy method works
+          
+#       - name: Pushes to another repository🚀
+#         uses: cpina/github-action-push-to-another-repository@main
+#         env:
+#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#         with:
+#           source-directory: 'androidBuild/Android/Android/unityLibrary/output/'
+#           destination-github-username: 'Shivamdhuria'
+#           destination-repository-name: 'RogueAndroid'
+#           target-directory: unityLibrary
+#           user-email: carles3@pina.cat
+#           target-branch: main
 
 
 
