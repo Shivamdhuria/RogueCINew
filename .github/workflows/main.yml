@@ -195,56 +195,12 @@ jobs:
             cd ./androidBuild/Android
             ls -la
             
-#       - name: Copy files to another repository
-#         uses: nkoppel/push-files-to-another-repository@v1.1.1
-#         env:
-#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#           source-files: 'output/'
-#           destination-username: 'Shivamdhuria'
-#           destination-branch: 'main'
-#           destination-repository: 'RogueAndroid'
-#           commit-email: 'me@gmail.com'
-          
-#       - name: Pushes test file
-#         uses: dmnemec/copy_file_to_another_repo_action@main
-#         env:
-#          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#          source_file: 'test2.md'
-#          destination_repo: 'Shivamdhuria/RogueAndroid'
-#          user_email: 'example@email.com'
-#          user_name: 'dmnemec'
-#          commit_message: 'A custom message for the commit'
-            
-#       - uses: actions/upload-artifact@v2
-#         with:
-#            name: build-Android
-#            path: androidBuild/Android  
-            
-#       - name: Add gradle wrapper
-#         uses: gradle/gradle-build-action@v2
-#         with:
-#            gradle-version: 7.6
-#            arguments: wrapper 
-#            build-root-directory: /androidBuild/Android
-        
-#       - name: Setup Gradle
-#         uses: gradle/gradle-build-action@v2
-#         with:
-#            arguments: build
-#            build-root-directory: /androidBuild
-           
-#       - name: Log directory after buil
-#         run: |
-#             ls -la
-#             cd ./androidBuild/Android/
-#             ls -la
+
             
       - name: Display structure of downloaded files
         run: ls -R
         
-      - name: Create folder Try
+      - name: Create folder Output
         run: |
           mkdir -p output
           ls output/
@@ -258,17 +214,29 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
            
-#         //The below copy method works when not executing ^^ job
+#       The below action overwrites the whole directory which includes gradle files and manifest which we don't want. 
           
-      - name: Pushes to another repository🚀
+      - name: Pushes 'libs' another repository🚀
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'output/'
+          source-directory: 'output/libs/'
           destination-github-username: 'Shivamdhuria'
           destination-repository-name: 'RogueAndroid'
-          target-directory: unityLibrary/
+          target-directory: unityLibrary/libs/
+          user-email: carles3@pina.cat
+          target-branch: main
+          
+      - name: Pushes 'src' another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output/src/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          target-directory: unityLibrary/src/
           user-email: carles3@pina.cat
           target-branch: main
 
