@@ -243,8 +243,8 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         
-      - name: filters androidBuild/Android/Android/unityLibrary/ to androidBuild/Android/Android/unityLibrary/output using rsync (to exclude main.epub in this example)
-        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ androidBuild/Android/Android/unityLibrary/output/
+      - name: filters androidBuild/Android/Android/unityLibrary/ to unity/output using rsync (to exclude main.epub in this example)
+        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ unity/output
         
       - name: Display structure of downloaded files
         run: ls -R
