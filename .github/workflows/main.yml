@@ -243,11 +243,11 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         
-      - name: filters androidBuild/Android/Android/unityLibrary/ to unity/output using rsync (to exclude main.epub in this example)
-        run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ /output
+#       - name: filters androidBuild/Android/Android/unityLibrary/ to unity/output using rsync (to exclude main.epub in this example)
+#         run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ /output
         
-      - name: Display structure of downloaded files
-        run: ls -R
+#       - name: Display structure of downloaded files
+#         run: ls -R
         
       - name: Copycat
         uses: andstor/copycat-action@v3
