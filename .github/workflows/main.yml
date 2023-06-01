@@ -228,15 +228,52 @@ jobs:
           user-email: carles3@pina.cat
           target-branch: main
           
-      - name: Pushes 'src' another repository🚀
+      - name: Pushes 'assets' another repository🚀
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'output/src/'
+          source-directory: 'output/src/main/assets/'
           destination-github-username: 'Shivamdhuria'
           destination-repository-name: 'RogueAndroid'
-          target-directory: unityLibrary/src/
+          target-directory: unityLibrary/src/main/assets/
+          user-email: carles3@pina.cat
+          target-branch: main
+      
+      - name: Pushes 'java' another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output/src/main/java/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          target-directory: unityLibrary/src/main/java/
+          user-email: carles3@pina.cat
+          target-branch: main
+
+      - name: Pushes 'jniLibs' another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output/src/main/jniLibs/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          target-directory: unityLibrary/src/main/jniLibs/
+          user-email: carles3@pina.cat
+          target-branch: main
+          
+      
+      - name: Pushes 'res' another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output/src/main/res/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          target-directory: unityLibrary/src/main/jniLibs/
           user-email: carles3@pina.cat
           target-branch: main
 
