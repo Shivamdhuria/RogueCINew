@@ -242,13 +242,16 @@ jobs:
             
       - name: Display structure of downloaded files
         run: ls -R
+        
+      - name: filters androidBuild/Android/Android/unityLibrary/ to androidBuild/Android/Android/unityLibrary/output using rsync (to exclude main.epub in this example)
+        run:  apk add rsync && rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ androidBuild/Android/Android/unityLibrary/output/
           
       - name: Pushes to another repository🚀
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'androidBuild/Android/Android/unityLibrary'
+          source-directory: 'androidBuild/Android/Android/unityLibrary/output/'
           destination-github-username: 'Shivamdhuria'
           destination-repository-name: 'RogueAndroid'
           target-directory: unityLibrary
