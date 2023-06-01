@@ -244,6 +244,14 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         
+      - name: Create folder Try
+        run: |
+          mkdir -p output
+          ls output/
+          
+      - name: Display structure of Created files files
+        run: ls -R
+        
       - name: filters androidBuild/Android/Android/unityLibrary/ to /output using rsync 
         run:  rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ /output
            
