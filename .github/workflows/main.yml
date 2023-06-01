@@ -221,10 +221,10 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'output/libs/'
+          source-directory: 'output/libs'
           destination-github-username: 'Shivamdhuria'
           destination-repository-name: 'RogueAndroid'
-          target-directory: unityLibrary/libs/
+          target-directory: unityLibrary/libs
           user-email: carles3@pina.cat
           target-branch: main
           
