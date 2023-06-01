@@ -234,17 +234,20 @@ jobs:
 #            arguments: build
 #            build-root-directory: /androidBuild
            
-      - name: Log directory after buil
-        run: |
-            ls -la
-            cd ./androidBuild/Android/
-            ls -la
+#       - name: Log directory after buil
+#         run: |
+#             ls -la
+#             cd ./androidBuild/Android/
+#             ls -la
             
       - name: Display structure of downloaded files
         run: ls -R
         
       - name: filters androidBuild/Android/Android/unityLibrary/ to androidBuild/Android/Android/unityLibrary/output using rsync (to exclude main.epub in this example)
         run:  apk add rsync && rsync -arv --exclude="/AndroidManifest.xml" androidBuild/Android/Android/unityLibrary/ androidBuild/Android/Android/unityLibrary/output/
+        
+      - name: Display structure of downloaded files
+        run: ls -R
           
       - name: Pushes to another repository🚀
         uses: cpina/github-action-push-to-another-repository@main
