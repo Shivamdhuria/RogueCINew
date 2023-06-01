@@ -195,16 +195,16 @@ jobs:
             cd ./androidBuild/Android
             ls -la
             
-      - name: Copy files to another repository
-        uses: nkoppel/push-files-to-another-repository@v1.1.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-files: 'output/'
-          destination-username: 'Shivamdhuria'
-          destination-branch: 'main'
-          destination-repository: 'RogueAndroid'
-          commit-email: 'me@gmail.com'
+#       - name: Copy files to another repository
+#         uses: nkoppel/push-files-to-another-repository@v1.1.1
+#         env:
+#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#         with:
+#           source-files: 'output/'
+#           destination-username: 'Shivamdhuria'
+#           destination-branch: 'main'
+#           destination-repository: 'RogueAndroid'
+#           commit-email: 'me@gmail.com'
           
 #       - name: Pushes test file
 #         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -260,17 +260,17 @@ jobs:
            
 #         //The below copy method works when not executing ^^ job
           
-#       - name: Pushes to another repository🚀
-#         uses: cpina/github-action-push-to-another-repository@main
-#         env:
-#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#           source-directory: 'androidBuild/Android/Android/unityLibrary'
-#           destination-github-username: 'Shivamdhuria'
-#           destination-repository-name: 'RogueAndroid'
-#           target-directory: unityLibrary
-#           user-email: carles3@pina.cat
-#           target-branch: main
+      - name: Pushes to another repository🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output/'
+          destination-github-username: 'Shivamdhuria'
+          destination-repository-name: 'RogueAndroid'
+          target-directory: unityLibrary/
+          user-email: carles3@pina.cat
+          target-branch: main
 
 
 
