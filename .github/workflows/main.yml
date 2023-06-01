@@ -151,8 +151,8 @@ jobs:
     name: Build for Android 📱
     runs-on: ubuntu-latest
     container: ubuntu
-    permissions:
-         contents: write-all
+    permissions: read-all|write-all
+#          contents: write-all
     strategy:
       fail-fast: false
     steps:
