@@ -152,7 +152,7 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu
     permissions:
-         contents: write
+         contents: write-all
     strategy:
       fail-fast: false
     steps:
