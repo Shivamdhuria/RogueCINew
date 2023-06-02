@@ -189,6 +189,7 @@ jobs:
 
       - uses: game-ci/unity-builder@v2.2.0
         with:
+          customImage: unityci/editor:ubuntu-2020.3.43f1-linux-il2cpp-1.0.1
           androidExportType: androidStudioProject
           buildsPath: androidBuild
           targetPlatform: Android
