@@ -155,6 +155,9 @@ jobs:
     permissions: write-all
     strategy:
       fail-fast: false
+      matrix:
+        unityVersion:
+          - 2019.4.40f1
     steps:
       - name: Checkout code
         uses: actions/checkout@v3.5.2
@@ -276,56 +279,11 @@ jobs:
           target-directory: unityLibrary/src/main/jniLibs/
           user-email: carles3@pina.cat
           target-branch: main
-
-
-
-
-
-#   deployUnity:
-#     needs: buildAndroid
-#     name: Deploy to Github Android Repo 🚀
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-
-#       - uses: actions/download-artifact@v2
-#         with:
-#           name: build-Android
-          
-#       - name: Display structure of downloaded files
-#         run: ls -R
-          
-#       - name: Pushes to another repository🚀
-#         uses: cpina/github-action-push-to-another-repository@main
-#         env:
-#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#           source-directory: 'output'
-#           destination-github-username: 'Shivamdhuria'
-#           destination-repository-name: 'RogueAndroid'
-#           user-email: carles3@pina.cat
-#           target-branch: main
-          
-#       - name: Deploy 🚀
-#         uses: nkoppel/push-files-to-another-repository@v1.1.1
-#         env:
-#           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#         with:
-#           source-files: './Android/'
-#           destination-username: 'Shivamdhuria'
-#           destination-branch: 'main'
-#           destination-repository: 'RogueAndroid'
-#           commit-email: 'me@gmail.com'
-
-
-
-
            
       - uses: actions/upload-artifact@v2
         with:
            name: build-Android
-           path: output   
+           path: androidBuild/Android/Android   
 
 #       - uses: actions/upload-artifact@v2
 #         with:
