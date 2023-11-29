@@ -58,49 +58,7 @@ jobs:
           name: Test results (${{ matrix.testMode }})
           path: ${{ steps.testRunner.outputs.artifactsPath }}
 
-#   buildWebGL:
-#     needs: testRunner
-#     name: Build for WebGL 🖥️
-#     runs-on: ubuntu-latest
-#     strategy:
-#       fail-fast: false
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3.5.2
-#       - name: Create LFS file list
-#         run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
-#       - name: Restore LFS cache
-#         uses: actions/cache@v2
-#         id: lfs-cache
-#         with:
-#           path: .git/lfs
-#           key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
-#       - name: Git LFS Pull
-#         run: |
-#           git lfs pull
-#           git add .
-#           git reset --hard
-
-#       - name: Restore Library cache
-#         uses: actions/cache@v2
-#         with:
-#           path: Library
-#           key: Library-build-WebGL
-#           restore-keys: |
-#             Library-build-
-#             Library-
-
-#       - uses: game-ci/unity-builder@v2.2.0
-#         with:
-#           targetPlatform: WebGL
-        
-
-#       - uses: actions/upload-artifact@v2
-#         with:
-#           name: build-WebGL
-#           path: build/WebGL
 
 #   buildWindows:
 # #     needs: testRunner
@@ -147,7 +105,6 @@ jobs:
 #           path: build/StandaloneWindows64
 
   buildAndroid:
-#     needs: testRunner
     name: Build for Android 📱
     runs-on: ubuntu-latest
 #     permissions:
@@ -159,35 +116,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3.5.2
 
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-
-      - name: Restore LFS cache
-        uses: actions/cache@v2
-        id: lfs-cache
+      - uses: game-ci/unity-builder@v2
         with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
-      - name: Git LFS Pull
-        run: |
-          git lfs pull
-          git add .
-          git reset --hard
-
-      - name: Restore Library cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-build-Android
-          restore-keys: |
-            Library-build-
-            Library-
-
-      - uses: game-ci/unity-builder@v2.2.0
-        with:
-#           customImage: unityci/editor:ubuntu-2020.3.43f1-linux-il2cpp-1.0.1
           androidExportType: androidStudioProject
+          unityVersion: '2022.3.10f1'
           buildsPath: androidBuild
           targetPlatform: Android
           
@@ -285,21 +217,3 @@ jobs:
 
 
 
-#   deployPages:
-#     needs: buildWebGL
-#     name: Deploy to Github Pages 🚀
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-
-#       - uses: actions/download-artifact@v2
-#         with:
-#           name: build-WebGL
-#           path: build
-
-#       - name: Deploy 🚀
-#         uses: JamesIves/github-pages-deploy-action@4.1.4
-#         with:
-#           branch: gh-pages
-#           folder: build/WebGL
